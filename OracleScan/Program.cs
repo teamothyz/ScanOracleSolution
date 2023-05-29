@@ -1,3 +1,5 @@
+using OracleScan.Forms;
+
 namespace OracleScan
 {
     internal static class Program
@@ -6,7 +8,7 @@ namespace OracleScan
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            //Application.Run(new Form1());
+            Application.Run(new FrmMain());
         }
     }
 }

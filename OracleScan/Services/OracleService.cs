@@ -5,8 +5,6 @@ namespace OracleScan.Services
 {
     public class OracleService
     {
-        private readonly HttpClient _client;
-
         private static readonly List<string> _userAgents = new()
         {
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.57",
@@ -30,13 +28,13 @@ namespace OracleScan.Services
             "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36"
         };
 
-        public OracleService(MyProxy? myProxy) 
+        public static HttpClient CreateClient(MyProxy? myProxy, ProxyType type) 
         {
             var handler = new HttpClientHandler();
-            if (myProxy != null )
+            if (myProxy != null && type != ProxyType.None)
             {
-                var webProxy = new WebProxy(myProxy.Host, myProxy.Port);
-                if (!string.IsNullOrEmpty(myProxy.UserName))
+                var webProxy = new WebProxy($"{type}://{myProxy.Host}:{myProxy.Port}");
+                if (!string.IsNullOrEmpty(myProxy.UserName) && !string.IsNullOrEmpty(myProxy.Password))
                 {
                     var credential = new NetworkCredential
                     {
@@ -49,20 +47,20 @@ namespace OracleScan.Services
                 handler.UseProxy = true;
             }
             handler.UseCookies = false;
-            _client = new HttpClient(handler);
+            return new HttpClient(handler);
         }
 
-        public async Task<string?> CheckTenant(string tenantName, CancellationToken token)
+        public static async Task<string?> CheckTenant(HttpClient client, string tenantName, CancellationToken token)
         {
             try
             {
-                _client.DefaultRequestHeaders.Clear();
-                _client.DefaultRequestHeaders.Add("Origin", "https://www.oracle.com");
-                _client.DefaultRequestHeaders.Add("Referer", "https://www.oracle.com/cloud/sign-in.html?redirect_uri=https%3A%2F%2Fcloud.oracle.com%2F");
-                _client.DefaultRequestHeaders.Add("User-Agent", GetUserAgent());
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Add("Origin", "https://www.oracle.com");
+                client.DefaultRequestHeaders.Add("Referer", "https://www.oracle.com/cloud/sign-in.html?redirect_uri=https%3A%2F%2Fcloud.oracle.com%2F");
+                client.DefaultRequestHeaders.Add("User-Agent", GetUserAgent());
                 var url = $"https://login.oci.oraclecloud.com/v2/cloudAccount?tenant={tenantName}";
-                var res = await _client.GetAsync(url, token);
-                return await res.Content.ReadAsStringAsync();
+                var res = await client.GetAsync(url, token);
+                return await res.Content.ReadAsStringAsync(token);
             }
             catch (Exception ex)
             {

@@ -9,10 +9,11 @@ namespace OracleScan.Services
         private static readonly object _lockLogs = new();
         private static readonly object _lockSuccess = new();
         private static readonly object _lockFailed = new();
+        private static readonly object _lockError = new();
 
-        public static List<Account> LoadAccounts(string path)
+        public static Queue<Account> LoadAccounts(string path)
         {
-            var accounts = new List<Account>();
+            var accounts = new Queue<Account>();
             lock (_lockAccount)
             {
                 try
@@ -25,7 +26,7 @@ namespace OracleScan.Services
                         {
                             var details = line.Split(":");
                             var account = new Account(details[0], details[1], details[0].Split("@")[0]);
-                            accounts.Add(account);
+                            accounts.Enqueue(account);
                         }
                         catch
                         {
@@ -154,6 +155,54 @@ namespace OracleScan.Services
                 catch (Exception ex)
                 {
                     WriteLog($"[WriteFailed] Got exception when writing failed data. Error: {ex}");
+                }
+            }
+        }
+
+        public static void WriteError(Account account)
+        {
+            lock (_lockError)
+            {
+                try
+                {
+                    var basePath = AppDomain.CurrentDomain.BaseDirectory;
+                    var outputPath = Path.Combine(basePath, "output");
+                    var failedPath = Path.Combine(outputPath, "error");
+                    var failedFile = Path.Combine(failedPath, $"{DateTime.Now:ddMMyyyy}error.txt");
+
+                    if (!Directory.Exists(outputPath)) Directory.CreateDirectory(outputPath);
+                    if (!Directory.Exists(failedPath)) Directory.CreateDirectory(failedPath);
+
+                    using var writer = new StreamWriter(failedFile, true);
+                    writer.WriteLine($"{account.Email}:{account.Password}");
+                    writer.Flush();
+                    writer.Close();
+                }
+                catch (Exception ex)
+                {
+                    WriteLog($"[WriteFailed] Got exception when writing error data. Error: {ex}");
+                }
+            }
+        }
+
+        public static void WriteLastRun(string filename, int scanned)
+        {
+            lock (_lockError)
+            {
+                try
+                {
+                    var basePath = AppDomain.CurrentDomain.BaseDirectory;
+                    var outputPath = Path.Combine(basePath, "output");
+                    var scannedPath = Path.Combine(outputPath, "scanned");
+                    var scannedFile = Path.Combine(scannedPath, $"{DateTime.Now:dd-MM-yyyy}_{DateTime.Now:HH-mm-ss}_{scanned}_{filename}");
+
+                    if (!Directory.Exists(outputPath)) Directory.CreateDirectory(outputPath);
+                    if (!Directory.Exists(scannedPath)) Directory.CreateDirectory(scannedPath);
+                    File.Create(scannedFile).Close();
+                }
+                catch (Exception ex)
+                {
+                    WriteLog($"[WriteFailed] Got exception when writing scanned data. Error: {ex}");
                 }
             }
         }

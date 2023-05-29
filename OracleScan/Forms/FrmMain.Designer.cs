@@ -71,6 +71,7 @@
             this.LoadProxyBtn.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.LoadProxyBtn.TabIndex = 0;
             this.LoadProxyBtn.Values.Text = "Load Proxy";
+            this.LoadProxyBtn.Click += new System.EventHandler(this.LoadProxyBtn_Click);
             // 
             // LoadDataBtn
             // 
@@ -84,6 +85,7 @@
             this.LoadDataBtn.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.LoadDataBtn.TabIndex = 1;
             this.LoadDataBtn.Values.Text = "Load Data";
+            this.LoadDataBtn.Click += new System.EventHandler(this.LoadDataBtn_Click);
             // 
             // StartBtn
             // 
@@ -97,6 +99,7 @@
             this.StartBtn.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.StartBtn.TabIndex = 2;
             this.StartBtn.Values.Text = "Start";
+            this.StartBtn.Click += new System.EventHandler(this.StartBtn_Click);
             // 
             // StopBtn
             // 
@@ -111,6 +114,7 @@
             this.StopBtn.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.StopBtn.TabIndex = 3;
             this.StopBtn.Values.Text = "Stop";
+            this.StopBtn.Click += new System.EventHandler(this.StopBtn_Click);
             // 
             // kryptonLabel1
             // 
@@ -267,6 +271,7 @@
             this.NoProxyRadioButton.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.NoProxyRadioButton.TabIndex = 17;
             this.NoProxyRadioButton.Values.Text = "Proxyless";
+            this.NoProxyRadioButton.CheckedChanged += new System.EventHandler(this.ProxyRadioButton_CheckedChanged);
             // 
             // HTTPProxyRadioButton
             // 
@@ -277,6 +282,7 @@
             this.HTTPProxyRadioButton.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.HTTPProxyRadioButton.TabIndex = 18;
             this.HTTPProxyRadioButton.Values.Text = "HTTP";
+            this.HTTPProxyRadioButton.CheckedChanged += new System.EventHandler(this.ProxyRadioButton_CheckedChanged);
             // 
             // Socks5RadioButton
             // 
@@ -287,6 +293,7 @@
             this.Socks5RadioButton.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Socks5RadioButton.TabIndex = 19;
             this.Socks5RadioButton.Values.Text = "Socks5";
+            this.Socks5RadioButton.CheckedChanged += new System.EventHandler(this.ProxyRadioButton_CheckedChanged);
             // 
             // DelayUpDown
             // 
@@ -312,6 +319,7 @@
             0,
             0,
             0});
+            this.DelayUpDown.ValueChanged += new System.EventHandler(this.DelayUpDown_ValueChanged);
             // 
             // ThreadsUpDown
             // 
@@ -337,6 +345,7 @@
             0,
             0,
             0});
+            this.ThreadsUpDown.ValueChanged += new System.EventHandler(this.ThreadsUpDown_ValueChanged);
             // 
             // kryptonLabel9
             // 
@@ -359,6 +368,7 @@
             this.ActiveTopMostCheckBox.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ActiveTopMostCheckBox.TabIndex = 23;
             this.ActiveTopMostCheckBox.Values.Text = "Active";
+            this.ActiveTopMostCheckBox.CheckedChanged += new System.EventHandler(this.ActiveTopMostCheckBox_CheckedChanged);
             // 
             // label1
             // 

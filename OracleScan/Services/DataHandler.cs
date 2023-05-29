@@ -25,6 +25,11 @@ namespace OracleScan.Services
                         try
                         {
                             var details = line.Split(":");
+                            if (!details[0].Contains('@'))
+                            {
+                                line = reader.ReadLine();
+                                continue;
+                            }
                             var account = new Account(details[0], details[1], details[0].Split("@")[0]);
                             accounts.Enqueue(account);
                         }

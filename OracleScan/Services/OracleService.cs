@@ -28,7 +28,7 @@ namespace OracleScan.Services
             "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36"
         };
 
-        public static HttpClient CreateClient(MyProxy? myProxy, ProxyType type) 
+        public static HttpClient CreateClient(MyProxy? myProxy, ProxyType type)
         {
             var handler = new HttpClientHandler();
             if (myProxy != null && type != ProxyType.None)
@@ -47,7 +47,10 @@ namespace OracleScan.Services
                 handler.UseProxy = true;
             }
             handler.UseCookies = false;
-            return new HttpClient(handler);
+            return new HttpClient(handler)
+            {
+                Timeout = TimeSpan.FromSeconds(60)
+            };
         }
 
         public static async Task<string?> CheckTenant(HttpClient client, string tenantName, CancellationToken token)

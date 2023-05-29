@@ -81,6 +81,7 @@ namespace OracleScan.Forms
             var skipped = (int)SkipUpDown.Value;
             try
             {
+                _cancelSource = new();
                 await Task.Run(async () =>
                 {
                     Invoke(() =>

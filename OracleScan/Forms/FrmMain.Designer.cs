@@ -312,7 +312,7 @@
             // ThreadsUpDown
             // 
             ThreadsUpDown.Location = new Point(123, 276);
-            ThreadsUpDown.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
+            ThreadsUpDown.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
             ThreadsUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             ThreadsUpDown.Name = "ThreadsUpDown";
             ThreadsUpDown.Size = new Size(139, 22);

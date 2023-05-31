@@ -1,6 +1,5 @@
 ﻿using OracleScan.Models;
 using OracleScan.Services;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace OracleScan.Forms
 {

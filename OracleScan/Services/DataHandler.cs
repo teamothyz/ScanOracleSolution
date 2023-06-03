@@ -25,11 +25,7 @@ namespace OracleScan.Services
                         try
                         {
                             var details = line.Split(":");
-                            if (!details[0].Contains('@'))
-                            {
-                                line = reader.ReadLine();
-                                continue;
-                            }
+                            if (!details[0].Contains('@')) continue;
                             var account = new Account(details[0], details[1], details[0].Split("@")[0]);
                             accounts.Enqueue(account);
                         }
@@ -37,7 +33,10 @@ namespace OracleScan.Services
                         {
                             WriteLog($"[LoadAccounts] Got exception when loading account: {line}");
                         }
-                        line = reader.ReadLine();
+                        finally
+                        {
+                            line = reader.ReadLine();
+                        }
                     }
                 }
                 catch (Exception ex)

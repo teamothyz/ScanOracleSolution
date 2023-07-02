@@ -51,6 +51,7 @@ namespace OracleScan.Forms
                         _itemCount.Failed = 0;
                         _itemCount.Scanned = 0;
                     });
+                    MessageBox.Show(this, "Đã load Data xong!", "Thông báo");
                 }
             });
         }
@@ -70,6 +71,7 @@ namespace OracleScan.Forms
                 {
                     _proxies = DataHandler.LoadProxies(openFileDialog.FileName);
                     Invoke(() => ProxyCountTextBox.Text = _proxies.Count.ToString());
+                    MessageBox.Show(this, "Đã load Proxy xong!", "Thông báo");
                 }
             });
         }

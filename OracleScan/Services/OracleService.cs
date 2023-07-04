@@ -1,5 +1,6 @@
 ﻿using OracleScan.Models;
 using System.Net;
+using System.Security.Principal;
 
 namespace OracleScan.Services
 {
@@ -53,7 +54,7 @@ namespace OracleScan.Services
             };
         }
 
-        public static async Task<string?> CheckTenant(HttpClient client, string tenantName, CancellationToken token)
+        public static async Task<HttpStatusCode> CheckTenant(HttpClient client, Account account, CancellationToken token)
         {
             try
             {
@@ -61,14 +62,18 @@ namespace OracleScan.Services
                 client.DefaultRequestHeaders.Add("Origin", "https://www.oracle.com");
                 client.DefaultRequestHeaders.Add("Referer", "https://www.oracle.com/cloud/sign-in.html?redirect_uri=https%3A%2F%2Fcloud.oracle.com%2F");
                 client.DefaultRequestHeaders.Add("User-Agent", GetUserAgent());
-                var url = $"https://login.oci.oraclecloud.com/v2/cloudAccount?tenant={tenantName}";
+                var url = $"https://login.oci.oraclecloud.com/v2/cloudAccount?tenant={account.Tenant}";
                 var res = await client.GetAsync(url, token);
-                return await res.Content.ReadAsStringAsync(token);
+                if (res.StatusCode == HttpStatusCode.OK) DataHandler.WriteSuccess(account);
+                if (res.StatusCode == HttpStatusCode.Forbidden) DataHandler.WriteBan(account);
+                if (res.StatusCode == HttpStatusCode.NotFound) DataHandler.WriteError(account);
+                return res.StatusCode;
             }
             catch (Exception ex)
             {
-                DataHandler.WriteLog($"[CheckTenant] Got exception while checking tenant {tenantName}. Error: {ex}");
-                return null;
+                DataHandler.WriteLog($"[CheckTenant] Got exception while checking tenant {account.Tenant}. Error: {ex}");
+                DataHandler.WriteError(account);
+                return HttpStatusCode.InternalServerError;
             }
         }
 

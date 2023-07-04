@@ -9,6 +9,10 @@ namespace OracleScan.Models
         private int failed;
         private int scanned;
 
+        private static readonly object _lockSuccess = new();
+        private static readonly object _lockFailed = new();
+        private static readonly object _lockScan = new();
+
         public ItemsCount()
         {
             total = 0;
@@ -32,7 +36,7 @@ namespace OracleScan.Models
             get => success;
             set
             {
-                success = value;
+                lock (_lockSuccess) { success = value; }
                 NotifyPropertyChanged(nameof(Success));
             }
         }
@@ -42,7 +46,7 @@ namespace OracleScan.Models
             get => failed;
             set
             {
-                failed = value;
+                lock (_lockFailed) { failed = value; }
                 NotifyPropertyChanged(nameof(Failed));
             }
         }
@@ -52,7 +56,7 @@ namespace OracleScan.Models
             get => scanned;
             set
             {
-                scanned = value;
+                lock (_lockScan) { scanned = value; }
                 NotifyPropertyChanged(nameof(Scanned));
             }
         }

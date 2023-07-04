@@ -10,6 +10,10 @@ namespace OracleScan.Services
         private static readonly object _lockSuccess = new();
         private static readonly object _lockFailed = new();
         private static readonly object _lockError = new();
+        private static readonly object _lockBan = new();
+
+        private static readonly object _lockBanProxy = new();
+        private static readonly object _lockErrorProxy = new();
 
         public static Queue<Account> LoadAccounts(string path)
         {
@@ -137,6 +141,72 @@ namespace OracleScan.Services
             }
         }
 
+        public static void WriteBanProxy(MyProxy proxy)
+        {
+            lock (_lockBanProxy)
+            {
+                try
+                {
+                    var basePath = AppDomain.CurrentDomain.BaseDirectory;
+                    var outputPath = Path.Combine(basePath, "proxy");
+                    var banPath = Path.Combine(outputPath, "ban");
+                    var banFile = Path.Combine(banPath, $"{DateTime.Now:ddMMyyyy}ban.txt");
+
+                    if (!Directory.Exists(outputPath)) Directory.CreateDirectory(outputPath);
+                    if (!Directory.Exists(banPath)) Directory.CreateDirectory(banPath);
+
+                    using var writer = new StreamWriter(banFile, true);
+                    if (string.IsNullOrEmpty(proxy.UserName))
+                    {
+                        writer.WriteLine($"{proxy.Host}:{proxy.Port}");
+                    }
+                    else
+                    {
+                        writer.WriteLine($"{proxy.Host}:{proxy.Port}:{proxy.UserName}:{proxy.Password}");
+                    }
+                    writer.Flush();
+                    writer.Close();
+                }
+                catch (Exception ex)
+                {
+                    WriteLog($"[WriteBanProxy] Got exception when writing ban proxy. Error: {ex}");
+                }
+            }
+        }
+
+        public static void WriteErrorProxy(MyProxy proxy)
+        {
+            lock (_lockErrorProxy)
+            {
+                try
+                {
+                    var basePath = AppDomain.CurrentDomain.BaseDirectory;
+                    var outputPath = Path.Combine(basePath, "proxy");
+                    var diePath = Path.Combine(outputPath, "die");
+                    var dieFile = Path.Combine(diePath, $"{DateTime.Now:ddMMyyyy}die.txt");
+
+                    if (!Directory.Exists(outputPath)) Directory.CreateDirectory(outputPath);
+                    if (!Directory.Exists(diePath)) Directory.CreateDirectory(diePath);
+
+                    using var writer = new StreamWriter(dieFile, true);
+                    if (string.IsNullOrEmpty(proxy.UserName))
+                    {
+                        writer.WriteLine($"{proxy.Host}:{proxy.Port}");
+                    }
+                    else
+                    {
+                        writer.WriteLine($"{proxy.Host}:{proxy.Port}:{proxy.UserName}:{proxy.Password}");
+                    }
+                    writer.Flush();
+                    writer.Close();
+                }
+                catch (Exception ex)
+                {
+                    WriteLog($"[WriteErrorProxy] Got exception when writing die proxy. Error: {ex}");
+                }
+            }
+        }
+
         public static void WriteFailed(Account account)
         {
             lock (_lockFailed)
@@ -185,6 +255,32 @@ namespace OracleScan.Services
                 catch (Exception ex)
                 {
                     WriteLog($"[WriteFailed] Got exception when writing error data. Error: {ex}");
+                }
+            }
+        }
+
+        public static void WriteBan(Account account)
+        {
+            lock (_lockBan)
+            {
+                try
+                {
+                    var basePath = AppDomain.CurrentDomain.BaseDirectory;
+                    var outputPath = Path.Combine(basePath, "output");
+                    var failedPath = Path.Combine(outputPath, "ban");
+                    var failedFile = Path.Combine(failedPath, $"{DateTime.Now:ddMMyyyy}ban.txt");
+
+                    if (!Directory.Exists(outputPath)) Directory.CreateDirectory(outputPath);
+                    if (!Directory.Exists(failedPath)) Directory.CreateDirectory(failedPath);
+
+                    using var writer = new StreamWriter(failedFile, true);
+                    writer.WriteLine($"{account.Email}:{account.Password}");
+                    writer.Flush();
+                    writer.Close();
+                }
+                catch (Exception ex)
+                {
+                    WriteLog($"[WriteBan] Got exception when writing ban data. Error: {ex}");
                 }
             }
         }

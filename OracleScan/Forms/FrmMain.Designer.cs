@@ -29,409 +29,480 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
-            LoadProxyBtn = new Krypton.Toolkit.KryptonButton();
-            LoadDataBtn = new Krypton.Toolkit.KryptonButton();
-            StartBtn = new Krypton.Toolkit.KryptonButton();
-            StopBtn = new Krypton.Toolkit.KryptonButton();
-            kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
-            kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
-            kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
-            kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
-            kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
-            TotalAccountsTextBox = new Krypton.Toolkit.KryptonTextBox();
-            SuccessAccountsTextBox = new Krypton.Toolkit.KryptonTextBox();
-            FailedAccountsTextBox = new Krypton.Toolkit.KryptonTextBox();
-            CheckedAccountsTextBox = new Krypton.Toolkit.KryptonTextBox();
-            StatusTextBox = new Krypton.Toolkit.KryptonTextBox();
-            kryptonLabel6 = new Krypton.Toolkit.KryptonLabel();
-            kryptonLabel7 = new Krypton.Toolkit.KryptonLabel();
-            kryptonLabel8 = new Krypton.Toolkit.KryptonLabel();
-            NoProxyRadioButton = new Krypton.Toolkit.KryptonRadioButton();
-            HTTPProxyRadioButton = new Krypton.Toolkit.KryptonRadioButton();
-            Socks5RadioButton = new Krypton.Toolkit.KryptonRadioButton();
-            DelayUpDown = new Krypton.Toolkit.KryptonNumericUpDown();
-            ThreadsUpDown = new Krypton.Toolkit.KryptonNumericUpDown();
-            kryptonLabel9 = new Krypton.Toolkit.KryptonLabel();
-            ActiveTopMostCheckBox = new Krypton.Toolkit.KryptonCheckBox();
-            label1 = new Krypton.Toolkit.KryptonLabel();
-            ProxyCountTextBox = new Krypton.Toolkit.KryptonTextBox();
-            kryptonLabel10 = new Krypton.Toolkit.KryptonLabel();
-            SkipUpDown = new Krypton.Toolkit.KryptonNumericUpDown();
-            SuspendLayout();
+            this.LoadProxyBtn = new Krypton.Toolkit.KryptonButton();
+            this.LoadDataBtn = new Krypton.Toolkit.KryptonButton();
+            this.StartBtn = new Krypton.Toolkit.KryptonButton();
+            this.StopBtn = new Krypton.Toolkit.KryptonButton();
+            this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
+            this.TotalAccountsTextBox = new Krypton.Toolkit.KryptonTextBox();
+            this.SuccessAccountsTextBox = new Krypton.Toolkit.KryptonTextBox();
+            this.FailedAccountsTextBox = new Krypton.Toolkit.KryptonTextBox();
+            this.CheckedAccountsTextBox = new Krypton.Toolkit.KryptonTextBox();
+            this.StatusTextBox = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel6 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel7 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel8 = new Krypton.Toolkit.KryptonLabel();
+            this.NoProxyRadioButton = new Krypton.Toolkit.KryptonRadioButton();
+            this.HTTPProxyRadioButton = new Krypton.Toolkit.KryptonRadioButton();
+            this.Socks5RadioButton = new Krypton.Toolkit.KryptonRadioButton();
+            this.DelayUpDown = new Krypton.Toolkit.KryptonNumericUpDown();
+            this.ThreadsUpDown = new Krypton.Toolkit.KryptonNumericUpDown();
+            this.kryptonLabel9 = new Krypton.Toolkit.KryptonLabel();
+            this.ActiveTopMostCheckBox = new Krypton.Toolkit.KryptonCheckBox();
+            this.label1 = new Krypton.Toolkit.KryptonLabel();
+            this.TotalProxyTextBox = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel10 = new Krypton.Toolkit.KryptonLabel();
+            this.SkipUpDown = new Krypton.Toolkit.KryptonNumericUpDown();
+            this.ErrorProxyTextBox = new Krypton.Toolkit.KryptonTextBox();
+            this.BanProxyTextBox = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel11 = new Krypton.Toolkit.KryptonLabel();
+            this.SuspendLayout();
             // 
             // LoadProxyBtn
             // 
-            LoadProxyBtn.CornerRoundingRadius = -1F;
-            LoadProxyBtn.Location = new Point(287, 64);
-            LoadProxyBtn.Name = "LoadProxyBtn";
-            LoadProxyBtn.Size = new Size(112, 34);
-            LoadProxyBtn.StateCommon.Back.Color1 = Color.Navy;
-            LoadProxyBtn.StateCommon.Back.Color2 = Color.Navy;
-            LoadProxyBtn.StateCommon.Content.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            LoadProxyBtn.StateCommon.Content.ShortText.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            LoadProxyBtn.TabIndex = 0;
-            LoadProxyBtn.Values.Text = "Load Proxy";
-            LoadProxyBtn.Click += LoadProxyBtn_Click;
+            this.LoadProxyBtn.CornerRoundingRadius = -1F;
+            this.LoadProxyBtn.Location = new System.Drawing.Point(287, 64);
+            this.LoadProxyBtn.Name = "LoadProxyBtn";
+            this.LoadProxyBtn.Size = new System.Drawing.Size(112, 34);
+            this.LoadProxyBtn.StateCommon.Back.Color1 = System.Drawing.Color.Navy;
+            this.LoadProxyBtn.StateCommon.Back.Color2 = System.Drawing.Color.Navy;
+            this.LoadProxyBtn.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LoadProxyBtn.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LoadProxyBtn.TabIndex = 0;
+            this.LoadProxyBtn.Values.Text = "Load Proxy";
+            this.LoadProxyBtn.Click += new System.EventHandler(this.LoadProxyBtn_Click);
             // 
             // LoadDataBtn
             // 
-            LoadDataBtn.CornerRoundingRadius = -1F;
-            LoadDataBtn.Location = new Point(287, 10);
-            LoadDataBtn.Name = "LoadDataBtn";
-            LoadDataBtn.Size = new Size(112, 34);
-            LoadDataBtn.StateCommon.Back.Color1 = Color.Navy;
-            LoadDataBtn.StateCommon.Back.Color2 = Color.Navy;
-            LoadDataBtn.StateCommon.Content.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            LoadDataBtn.StateCommon.Content.ShortText.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            LoadDataBtn.TabIndex = 1;
-            LoadDataBtn.Values.Text = "Load Data";
-            LoadDataBtn.Click += LoadDataBtn_Click;
+            this.LoadDataBtn.CornerRoundingRadius = -1F;
+            this.LoadDataBtn.Location = new System.Drawing.Point(287, 10);
+            this.LoadDataBtn.Name = "LoadDataBtn";
+            this.LoadDataBtn.Size = new System.Drawing.Size(112, 34);
+            this.LoadDataBtn.StateCommon.Back.Color1 = System.Drawing.Color.Navy;
+            this.LoadDataBtn.StateCommon.Back.Color2 = System.Drawing.Color.Navy;
+            this.LoadDataBtn.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LoadDataBtn.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LoadDataBtn.TabIndex = 1;
+            this.LoadDataBtn.Values.Text = "Load Data";
+            this.LoadDataBtn.Click += new System.EventHandler(this.LoadDataBtn_Click);
             // 
             // StartBtn
             // 
-            StartBtn.CornerRoundingRadius = -1F;
-            StartBtn.Location = new Point(287, 117);
-            StartBtn.Name = "StartBtn";
-            StartBtn.Size = new Size(112, 34);
-            StartBtn.StateCommon.Back.Color1 = Color.FromArgb(0, 80, 0);
-            StartBtn.StateCommon.Back.Color2 = Color.FromArgb(0, 80, 0);
-            StartBtn.StateCommon.Content.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            StartBtn.StateCommon.Content.ShortText.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            StartBtn.TabIndex = 2;
-            StartBtn.Values.Text = "Start";
-            StartBtn.Click += StartBtn_Click;
+            this.StartBtn.CornerRoundingRadius = -1F;
+            this.StartBtn.Location = new System.Drawing.Point(287, 117);
+            this.StartBtn.Name = "StartBtn";
+            this.StartBtn.Size = new System.Drawing.Size(112, 34);
+            this.StartBtn.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(0)))));
+            this.StartBtn.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(0)))));
+            this.StartBtn.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.StartBtn.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.StartBtn.TabIndex = 2;
+            this.StartBtn.Values.Text = "Start";
+            this.StartBtn.Click += new System.EventHandler(this.StartBtn_Click);
             // 
             // StopBtn
             // 
-            StopBtn.CornerRoundingRadius = -1F;
-            StopBtn.Enabled = false;
-            StopBtn.Location = new Point(287, 172);
-            StopBtn.Name = "StopBtn";
-            StopBtn.Size = new Size(112, 34);
-            StopBtn.StateCommon.Back.Color1 = Color.Maroon;
-            StopBtn.StateCommon.Back.Color2 = Color.Maroon;
-            StopBtn.StateCommon.Content.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            StopBtn.StateCommon.Content.ShortText.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            StopBtn.TabIndex = 3;
-            StopBtn.Values.Text = "Stop";
-            StopBtn.Click += StopBtn_Click;
+            this.StopBtn.CornerRoundingRadius = -1F;
+            this.StopBtn.Enabled = false;
+            this.StopBtn.Location = new System.Drawing.Point(287, 172);
+            this.StopBtn.Name = "StopBtn";
+            this.StopBtn.Size = new System.Drawing.Size(112, 34);
+            this.StopBtn.StateCommon.Back.Color1 = System.Drawing.Color.Maroon;
+            this.StopBtn.StateCommon.Back.Color2 = System.Drawing.Color.Maroon;
+            this.StopBtn.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.StopBtn.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.StopBtn.TabIndex = 3;
+            this.StopBtn.Values.Text = "Stop";
+            this.StopBtn.Click += new System.EventHandler(this.StopBtn_Click);
             // 
             // kryptonLabel1
             // 
-            kryptonLabel1.Location = new Point(15, 13);
-            kryptonLabel1.Name = "kryptonLabel1";
-            kryptonLabel1.Size = new Size(98, 20);
-            kryptonLabel1.StateCommon.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            kryptonLabel1.StateCommon.ShortText.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            kryptonLabel1.TabIndex = 4;
-            kryptonLabel1.Values.Text = "Tổng accounts:";
+            this.kryptonLabel1.Location = new System.Drawing.Point(15, 13);
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.Size = new System.Drawing.Size(98, 20);
+            this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.kryptonLabel1.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.kryptonLabel1.TabIndex = 4;
+            this.kryptonLabel1.Values.Text = "Tổng accounts:";
             // 
             // kryptonLabel2
             // 
-            kryptonLabel2.Location = new Point(15, 50);
-            kryptonLabel2.Name = "kryptonLabel2";
-            kryptonLabel2.Size = new Size(82, 20);
-            kryptonLabel2.StateCommon.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            kryptonLabel2.StateCommon.ShortText.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            kryptonLabel2.TabIndex = 5;
-            kryptonLabel2.Values.Text = "Thành công:";
+            this.kryptonLabel2.Location = new System.Drawing.Point(15, 50);
+            this.kryptonLabel2.Name = "kryptonLabel2";
+            this.kryptonLabel2.Size = new System.Drawing.Size(82, 20);
+            this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.kryptonLabel2.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.kryptonLabel2.TabIndex = 5;
+            this.kryptonLabel2.Values.Text = "Thành công:";
             // 
             // kryptonLabel3
             // 
-            kryptonLabel3.Location = new Point(15, 87);
-            kryptonLabel3.Name = "kryptonLabel3";
-            kryptonLabel3.Size = new Size(61, 20);
-            kryptonLabel3.StateCommon.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            kryptonLabel3.StateCommon.ShortText.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            kryptonLabel3.TabIndex = 6;
-            kryptonLabel3.Values.Text = "Thất bại:";
+            this.kryptonLabel3.Location = new System.Drawing.Point(15, 87);
+            this.kryptonLabel3.Name = "kryptonLabel3";
+            this.kryptonLabel3.Size = new System.Drawing.Size(61, 20);
+            this.kryptonLabel3.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.kryptonLabel3.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.kryptonLabel3.TabIndex = 6;
+            this.kryptonLabel3.Values.Text = "Thất bại:";
             // 
             // kryptonLabel4
             // 
-            kryptonLabel4.Location = new Point(15, 124);
-            kryptonLabel4.Name = "kryptonLabel4";
-            kryptonLabel4.Size = new Size(81, 20);
-            kryptonLabel4.StateCommon.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            kryptonLabel4.StateCommon.ShortText.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            kryptonLabel4.TabIndex = 7;
-            kryptonLabel4.Values.Text = "Đã kiểm tra:";
-            // 
-            // kryptonLabel5
-            // 
-            kryptonLabel5.Location = new Point(15, 197);
-            kryptonLabel5.Name = "kryptonLabel5";
-            kryptonLabel5.Size = new Size(74, 20);
-            kryptonLabel5.StateCommon.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            kryptonLabel5.StateCommon.ShortText.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            kryptonLabel5.TabIndex = 8;
-            kryptonLabel5.Values.Text = "Trạng thái:";
+            this.kryptonLabel4.Location = new System.Drawing.Point(15, 124);
+            this.kryptonLabel4.Name = "kryptonLabel4";
+            this.kryptonLabel4.Size = new System.Drawing.Size(81, 20);
+            this.kryptonLabel4.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.kryptonLabel4.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.kryptonLabel4.TabIndex = 7;
+            this.kryptonLabel4.Values.Text = "Đã kiểm tra:";
             // 
             // TotalAccountsTextBox
             // 
-            TotalAccountsTextBox.Location = new Point(123, 10);
-            TotalAccountsTextBox.Name = "TotalAccountsTextBox";
-            TotalAccountsTextBox.ReadOnly = true;
-            TotalAccountsTextBox.Size = new Size(139, 23);
-            TotalAccountsTextBox.StateCommon.Back.Color1 = Color.FromArgb(128, 255, 255);
-            TotalAccountsTextBox.StateCommon.Content.Color1 = Color.Black;
-            TotalAccountsTextBox.StateCommon.Content.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            TotalAccountsTextBox.TabIndex = 9;
-            TotalAccountsTextBox.Text = "0";
-            TotalAccountsTextBox.TextAlign = HorizontalAlignment.Center;
+            this.TotalAccountsTextBox.Location = new System.Drawing.Point(123, 10);
+            this.TotalAccountsTextBox.Name = "TotalAccountsTextBox";
+            this.TotalAccountsTextBox.ReadOnly = true;
+            this.TotalAccountsTextBox.Size = new System.Drawing.Size(139, 23);
+            this.TotalAccountsTextBox.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.TotalAccountsTextBox.StateCommon.Content.Color1 = System.Drawing.Color.Black;
+            this.TotalAccountsTextBox.StateCommon.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TotalAccountsTextBox.TabIndex = 9;
+            this.TotalAccountsTextBox.Text = "0";
+            this.TotalAccountsTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // SuccessAccountsTextBox
             // 
-            SuccessAccountsTextBox.Location = new Point(123, 47);
-            SuccessAccountsTextBox.Name = "SuccessAccountsTextBox";
-            SuccessAccountsTextBox.ReadOnly = true;
-            SuccessAccountsTextBox.Size = new Size(139, 23);
-            SuccessAccountsTextBox.StateCommon.Back.Color1 = Color.FromArgb(128, 255, 128);
-            SuccessAccountsTextBox.StateCommon.Content.Color1 = Color.Black;
-            SuccessAccountsTextBox.StateCommon.Content.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            SuccessAccountsTextBox.TabIndex = 10;
-            SuccessAccountsTextBox.Text = "0";
-            SuccessAccountsTextBox.TextAlign = HorizontalAlignment.Center;
+            this.SuccessAccountsTextBox.Location = new System.Drawing.Point(123, 47);
+            this.SuccessAccountsTextBox.Name = "SuccessAccountsTextBox";
+            this.SuccessAccountsTextBox.ReadOnly = true;
+            this.SuccessAccountsTextBox.Size = new System.Drawing.Size(139, 23);
+            this.SuccessAccountsTextBox.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.SuccessAccountsTextBox.StateCommon.Content.Color1 = System.Drawing.Color.Black;
+            this.SuccessAccountsTextBox.StateCommon.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SuccessAccountsTextBox.TabIndex = 10;
+            this.SuccessAccountsTextBox.Text = "0";
+            this.SuccessAccountsTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FailedAccountsTextBox
             // 
-            FailedAccountsTextBox.Location = new Point(123, 84);
-            FailedAccountsTextBox.Name = "FailedAccountsTextBox";
-            FailedAccountsTextBox.ReadOnly = true;
-            FailedAccountsTextBox.Size = new Size(139, 23);
-            FailedAccountsTextBox.StateCommon.Back.Color1 = Color.FromArgb(255, 128, 128);
-            FailedAccountsTextBox.StateCommon.Content.Color1 = Color.Black;
-            FailedAccountsTextBox.StateCommon.Content.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            FailedAccountsTextBox.TabIndex = 11;
-            FailedAccountsTextBox.Text = "0";
-            FailedAccountsTextBox.TextAlign = HorizontalAlignment.Center;
+            this.FailedAccountsTextBox.Location = new System.Drawing.Point(123, 84);
+            this.FailedAccountsTextBox.Name = "FailedAccountsTextBox";
+            this.FailedAccountsTextBox.ReadOnly = true;
+            this.FailedAccountsTextBox.Size = new System.Drawing.Size(139, 23);
+            this.FailedAccountsTextBox.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.FailedAccountsTextBox.StateCommon.Content.Color1 = System.Drawing.Color.Black;
+            this.FailedAccountsTextBox.StateCommon.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.FailedAccountsTextBox.TabIndex = 11;
+            this.FailedAccountsTextBox.Text = "0";
+            this.FailedAccountsTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // CheckedAccountsTextBox
             // 
-            CheckedAccountsTextBox.Location = new Point(123, 121);
-            CheckedAccountsTextBox.Name = "CheckedAccountsTextBox";
-            CheckedAccountsTextBox.ReadOnly = true;
-            CheckedAccountsTextBox.Size = new Size(139, 23);
-            CheckedAccountsTextBox.StateCommon.Back.Color1 = Color.FromArgb(128, 255, 128);
-            CheckedAccountsTextBox.StateCommon.Content.Color1 = Color.Black;
-            CheckedAccountsTextBox.StateCommon.Content.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            CheckedAccountsTextBox.TabIndex = 12;
-            CheckedAccountsTextBox.Text = "0";
-            CheckedAccountsTextBox.TextAlign = HorizontalAlignment.Center;
+            this.CheckedAccountsTextBox.Location = new System.Drawing.Point(123, 121);
+            this.CheckedAccountsTextBox.Name = "CheckedAccountsTextBox";
+            this.CheckedAccountsTextBox.ReadOnly = true;
+            this.CheckedAccountsTextBox.Size = new System.Drawing.Size(139, 23);
+            this.CheckedAccountsTextBox.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.CheckedAccountsTextBox.StateCommon.Content.Color1 = System.Drawing.Color.Black;
+            this.CheckedAccountsTextBox.StateCommon.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CheckedAccountsTextBox.TabIndex = 12;
+            this.CheckedAccountsTextBox.Text = "0";
+            this.CheckedAccountsTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // StatusTextBox
             // 
-            StatusTextBox.Location = new Point(123, 194);
-            StatusTextBox.Name = "StatusTextBox";
-            StatusTextBox.ReadOnly = true;
-            StatusTextBox.Size = new Size(139, 23);
-            StatusTextBox.StateCommon.Back.Color1 = Color.FromArgb(255, 128, 0);
-            StatusTextBox.StateCommon.Content.Color1 = Color.Black;
-            StatusTextBox.StateCommon.Content.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            StatusTextBox.TabIndex = 13;
-            StatusTextBox.Text = "Chưa bắt đầu";
-            StatusTextBox.TextAlign = HorizontalAlignment.Center;
+            this.StatusTextBox.Location = new System.Drawing.Point(287, 227);
+            this.StatusTextBox.Name = "StatusTextBox";
+            this.StatusTextBox.ReadOnly = true;
+            this.StatusTextBox.Size = new System.Drawing.Size(112, 23);
+            this.StatusTextBox.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.StatusTextBox.StateCommon.Content.Color1 = System.Drawing.Color.Black;
+            this.StatusTextBox.StateCommon.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.StatusTextBox.TabIndex = 13;
+            this.StatusTextBox.Text = "Chưa bắt đầu";
+            this.StatusTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // kryptonLabel6
             // 
-            kryptonLabel6.Location = new Point(287, 234);
-            kryptonLabel6.Name = "kryptonLabel6";
-            kryptonLabel6.Size = new Size(46, 20);
-            kryptonLabel6.StateCommon.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            kryptonLabel6.StateCommon.ShortText.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            kryptonLabel6.TabIndex = 14;
-            kryptonLabel6.Values.Text = "Delay:";
+            this.kryptonLabel6.Location = new System.Drawing.Point(287, 270);
+            this.kryptonLabel6.Name = "kryptonLabel6";
+            this.kryptonLabel6.Size = new System.Drawing.Size(46, 20);
+            this.kryptonLabel6.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.kryptonLabel6.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.kryptonLabel6.TabIndex = 14;
+            this.kryptonLabel6.Values.Text = "Delay:";
             // 
             // kryptonLabel7
             // 
-            kryptonLabel7.Location = new Point(15, 278);
-            kryptonLabel7.Name = "kryptonLabel7";
-            kryptonLabel7.Size = new Size(65, 20);
-            kryptonLabel7.StateCommon.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            kryptonLabel7.StateCommon.ShortText.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            kryptonLabel7.TabIndex = 15;
-            kryptonLabel7.Values.Text = "Số luồng:";
+            this.kryptonLabel7.Location = new System.Drawing.Point(15, 303);
+            this.kryptonLabel7.Name = "kryptonLabel7";
+            this.kryptonLabel7.Size = new System.Drawing.Size(65, 20);
+            this.kryptonLabel7.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.kryptonLabel7.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.kryptonLabel7.TabIndex = 15;
+            this.kryptonLabel7.Values.Text = "Số luồng:";
             // 
             // kryptonLabel8
             // 
-            kryptonLabel8.Location = new Point(15, 320);
-            kryptonLabel8.Name = "kryptonLabel8";
-            kryptonLabel8.Size = new Size(47, 20);
-            kryptonLabel8.StateCommon.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            kryptonLabel8.StateCommon.ShortText.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            kryptonLabel8.TabIndex = 16;
-            kryptonLabel8.Values.Text = "Proxy:";
+            this.kryptonLabel8.Location = new System.Drawing.Point(15, 335);
+            this.kryptonLabel8.Name = "kryptonLabel8";
+            this.kryptonLabel8.Size = new System.Drawing.Size(47, 20);
+            this.kryptonLabel8.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.kryptonLabel8.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.kryptonLabel8.TabIndex = 16;
+            this.kryptonLabel8.Values.Text = "Proxy:";
             // 
             // NoProxyRadioButton
             // 
-            NoProxyRadioButton.Checked = true;
-            NoProxyRadioButton.Location = new Point(123, 320);
-            NoProxyRadioButton.Name = "NoProxyRadioButton";
-            NoProxyRadioButton.Size = new Size(77, 20);
-            NoProxyRadioButton.StateCommon.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            NoProxyRadioButton.StateCommon.ShortText.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            NoProxyRadioButton.TabIndex = 17;
-            NoProxyRadioButton.Values.Text = "Proxyless";
-            NoProxyRadioButton.CheckedChanged += ProxyRadioButton_CheckedChanged;
+            this.NoProxyRadioButton.Checked = true;
+            this.NoProxyRadioButton.Location = new System.Drawing.Point(123, 335);
+            this.NoProxyRadioButton.Name = "NoProxyRadioButton";
+            this.NoProxyRadioButton.Size = new System.Drawing.Size(77, 20);
+            this.NoProxyRadioButton.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.NoProxyRadioButton.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.NoProxyRadioButton.TabIndex = 17;
+            this.NoProxyRadioButton.Values.Text = "Proxyless";
+            this.NoProxyRadioButton.CheckedChanged += new System.EventHandler(this.ProxyRadioButton_CheckedChanged);
             // 
             // HTTPProxyRadioButton
             // 
-            HTTPProxyRadioButton.Location = new Point(123, 346);
-            HTTPProxyRadioButton.Name = "HTTPProxyRadioButton";
-            HTTPProxyRadioButton.Size = new Size(54, 20);
-            HTTPProxyRadioButton.StateCommon.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            HTTPProxyRadioButton.StateCommon.ShortText.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            HTTPProxyRadioButton.TabIndex = 18;
-            HTTPProxyRadioButton.Values.Text = "HTTP";
-            HTTPProxyRadioButton.CheckedChanged += ProxyRadioButton_CheckedChanged;
+            this.HTTPProxyRadioButton.Location = new System.Drawing.Point(208, 335);
+            this.HTTPProxyRadioButton.Name = "HTTPProxyRadioButton";
+            this.HTTPProxyRadioButton.Size = new System.Drawing.Size(54, 20);
+            this.HTTPProxyRadioButton.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.HTTPProxyRadioButton.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.HTTPProxyRadioButton.TabIndex = 18;
+            this.HTTPProxyRadioButton.Values.Text = "HTTP";
+            this.HTTPProxyRadioButton.CheckedChanged += new System.EventHandler(this.ProxyRadioButton_CheckedChanged);
             // 
             // Socks5RadioButton
             // 
-            Socks5RadioButton.Location = new Point(123, 376);
-            Socks5RadioButton.Name = "Socks5RadioButton";
-            Socks5RadioButton.Size = new Size(62, 20);
-            Socks5RadioButton.StateCommon.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            Socks5RadioButton.StateCommon.ShortText.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            Socks5RadioButton.TabIndex = 19;
-            Socks5RadioButton.Values.Text = "Socks5";
-            Socks5RadioButton.CheckedChanged += ProxyRadioButton_CheckedChanged;
+            this.Socks5RadioButton.Location = new System.Drawing.Point(271, 335);
+            this.Socks5RadioButton.Name = "Socks5RadioButton";
+            this.Socks5RadioButton.Size = new System.Drawing.Size(62, 20);
+            this.Socks5RadioButton.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Socks5RadioButton.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Socks5RadioButton.TabIndex = 19;
+            this.Socks5RadioButton.Values.Text = "Socks5";
+            this.Socks5RadioButton.CheckedChanged += new System.EventHandler(this.ProxyRadioButton_CheckedChanged);
             // 
             // DelayUpDown
             // 
-            DelayUpDown.Location = new Point(339, 234);
-            DelayUpDown.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
-            DelayUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            DelayUpDown.Name = "DelayUpDown";
-            DelayUpDown.Size = new Size(60, 22);
-            DelayUpDown.StateCommon.Back.Color1 = Color.FromArgb(255, 255, 128);
-            DelayUpDown.StateCommon.Content.Color1 = Color.Black;
-            DelayUpDown.StateCommon.Content.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            DelayUpDown.TabIndex = 20;
-            DelayUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            DelayUpDown.ValueChanged += DelayUpDown_ValueChanged;
+            this.DelayUpDown.Location = new System.Drawing.Point(339, 268);
+            this.DelayUpDown.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.DelayUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.DelayUpDown.Name = "DelayUpDown";
+            this.DelayUpDown.Size = new System.Drawing.Size(60, 22);
+            this.DelayUpDown.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.DelayUpDown.StateCommon.Content.Color1 = System.Drawing.Color.Black;
+            this.DelayUpDown.StateCommon.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.DelayUpDown.TabIndex = 20;
+            this.DelayUpDown.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.DelayUpDown.ValueChanged += new System.EventHandler(this.DelayUpDown_ValueChanged);
             // 
             // ThreadsUpDown
             // 
-            ThreadsUpDown.Location = new Point(123, 276);
-            ThreadsUpDown.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
-            ThreadsUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            ThreadsUpDown.Name = "ThreadsUpDown";
-            ThreadsUpDown.Size = new Size(139, 22);
-            ThreadsUpDown.StateCommon.Back.Color1 = Color.FromArgb(255, 255, 128);
-            ThreadsUpDown.StateCommon.Content.Color1 = Color.Black;
-            ThreadsUpDown.StateCommon.Content.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            ThreadsUpDown.TabIndex = 21;
-            ThreadsUpDown.Value = new decimal(new int[] { 30, 0, 0, 0 });
-            ThreadsUpDown.ValueChanged += ThreadsUpDown_ValueChanged;
+            this.ThreadsUpDown.Location = new System.Drawing.Point(123, 301);
+            this.ThreadsUpDown.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.ThreadsUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ThreadsUpDown.Name = "ThreadsUpDown";
+            this.ThreadsUpDown.Size = new System.Drawing.Size(139, 22);
+            this.ThreadsUpDown.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.ThreadsUpDown.StateCommon.Content.Color1 = System.Drawing.Color.Black;
+            this.ThreadsUpDown.StateCommon.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ThreadsUpDown.TabIndex = 21;
+            this.ThreadsUpDown.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.ThreadsUpDown.ValueChanged += new System.EventHandler(this.ThreadsUpDown_ValueChanged);
             // 
             // kryptonLabel9
             // 
-            kryptonLabel9.Location = new Point(15, 406);
-            kryptonLabel9.Name = "kryptonLabel9";
-            kryptonLabel9.Size = new Size(69, 20);
-            kryptonLabel9.StateCommon.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            kryptonLabel9.StateCommon.ShortText.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            kryptonLabel9.TabIndex = 22;
-            kryptonLabel9.Values.Text = "Top most:";
+            this.kryptonLabel9.Location = new System.Drawing.Point(15, 365);
+            this.kryptonLabel9.Name = "kryptonLabel9";
+            this.kryptonLabel9.Size = new System.Drawing.Size(69, 20);
+            this.kryptonLabel9.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.kryptonLabel9.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.kryptonLabel9.TabIndex = 22;
+            this.kryptonLabel9.Values.Text = "Top most:";
             // 
             // ActiveTopMostCheckBox
             // 
-            ActiveTopMostCheckBox.Checked = true;
-            ActiveTopMostCheckBox.CheckState = CheckState.Checked;
-            ActiveTopMostCheckBox.Location = new Point(123, 406);
-            ActiveTopMostCheckBox.Name = "ActiveTopMostCheckBox";
-            ActiveTopMostCheckBox.Size = new Size(60, 20);
-            ActiveTopMostCheckBox.StateCommon.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            ActiveTopMostCheckBox.StateCommon.ShortText.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            ActiveTopMostCheckBox.TabIndex = 23;
-            ActiveTopMostCheckBox.Values.Text = "Active";
-            ActiveTopMostCheckBox.CheckedChanged += ActiveTopMostCheckBox_CheckedChanged;
+            this.ActiveTopMostCheckBox.Checked = true;
+            this.ActiveTopMostCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ActiveTopMostCheckBox.Location = new System.Drawing.Point(123, 365);
+            this.ActiveTopMostCheckBox.Name = "ActiveTopMostCheckBox";
+            this.ActiveTopMostCheckBox.Size = new System.Drawing.Size(60, 20);
+            this.ActiveTopMostCheckBox.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ActiveTopMostCheckBox.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ActiveTopMostCheckBox.TabIndex = 23;
+            this.ActiveTopMostCheckBox.Values.Text = "Active";
+            this.ActiveTopMostCheckBox.CheckedChanged += new System.EventHandler(this.ActiveTopMostCheckBox_CheckedChanged);
             // 
             // label1
             // 
-            label1.Location = new Point(15, 160);
-            label1.Name = "label1";
-            label1.Size = new Size(65, 20);
-            label1.StateCommon.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            label1.StateCommon.ShortText.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.TabIndex = 24;
-            label1.Values.Text = "Số proxy:";
+            this.label1.Location = new System.Drawing.Point(15, 160);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 20);
+            this.label1.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label1.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.TabIndex = 24;
+            this.label1.Values.Text = "Số proxy:";
             // 
-            // ProxyCountTextBox
+            // TotalProxyTextBox
             // 
-            ProxyCountTextBox.Location = new Point(123, 157);
-            ProxyCountTextBox.Name = "ProxyCountTextBox";
-            ProxyCountTextBox.ReadOnly = true;
-            ProxyCountTextBox.Size = new Size(139, 23);
-            ProxyCountTextBox.StateCommon.Back.Color1 = Color.FromArgb(128, 255, 255);
-            ProxyCountTextBox.StateCommon.Content.Color1 = Color.Black;
-            ProxyCountTextBox.StateCommon.Content.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            ProxyCountTextBox.TabIndex = 25;
-            ProxyCountTextBox.Text = "0";
-            ProxyCountTextBox.TextAlign = HorizontalAlignment.Center;
+            this.TotalProxyTextBox.Location = new System.Drawing.Point(123, 157);
+            this.TotalProxyTextBox.Name = "TotalProxyTextBox";
+            this.TotalProxyTextBox.ReadOnly = true;
+            this.TotalProxyTextBox.Size = new System.Drawing.Size(139, 23);
+            this.TotalProxyTextBox.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.TotalProxyTextBox.StateCommon.Content.Color1 = System.Drawing.Color.Black;
+            this.TotalProxyTextBox.StateCommon.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TotalProxyTextBox.TabIndex = 25;
+            this.TotalProxyTextBox.Text = "0";
+            this.TotalProxyTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // kryptonLabel10
             // 
-            kryptonLabel10.Location = new Point(15, 236);
-            kryptonLabel10.Name = "kryptonLabel10";
-            kryptonLabel10.Size = new Size(39, 20);
-            kryptonLabel10.StateCommon.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            kryptonLabel10.StateCommon.ShortText.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            kryptonLabel10.TabIndex = 26;
-            kryptonLabel10.Values.Text = "Skip:";
+            this.kryptonLabel10.Location = new System.Drawing.Point(15, 268);
+            this.kryptonLabel10.Name = "kryptonLabel10";
+            this.kryptonLabel10.Size = new System.Drawing.Size(39, 20);
+            this.kryptonLabel10.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.kryptonLabel10.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.kryptonLabel10.TabIndex = 26;
+            this.kryptonLabel10.Values.Text = "Skip:";
             // 
             // SkipUpDown
             // 
-            SkipUpDown.Location = new Point(123, 234);
-            SkipUpDown.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
-            SkipUpDown.Name = "SkipUpDown";
-            SkipUpDown.Size = new Size(139, 22);
-            SkipUpDown.StateCommon.Back.Color1 = Color.FromArgb(255, 255, 128);
-            SkipUpDown.StateCommon.Content.Color1 = Color.Black;
-            SkipUpDown.StateCommon.Content.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            SkipUpDown.TabIndex = 27;
+            this.SkipUpDown.Location = new System.Drawing.Point(123, 266);
+            this.SkipUpDown.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.SkipUpDown.Name = "SkipUpDown";
+            this.SkipUpDown.Size = new System.Drawing.Size(139, 22);
+            this.SkipUpDown.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.SkipUpDown.StateCommon.Content.Color1 = System.Drawing.Color.Black;
+            this.SkipUpDown.StateCommon.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SkipUpDown.TabIndex = 27;
+            // 
+            // ErrorProxyTextBox
+            // 
+            this.ErrorProxyTextBox.Location = new System.Drawing.Point(123, 194);
+            this.ErrorProxyTextBox.Name = "ErrorProxyTextBox";
+            this.ErrorProxyTextBox.ReadOnly = true;
+            this.ErrorProxyTextBox.Size = new System.Drawing.Size(139, 23);
+            this.ErrorProxyTextBox.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.ErrorProxyTextBox.StateCommon.Content.Color1 = System.Drawing.Color.Black;
+            this.ErrorProxyTextBox.StateCommon.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ErrorProxyTextBox.TabIndex = 28;
+            this.ErrorProxyTextBox.Text = "0";
+            this.ErrorProxyTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // BanProxyTextBox
+            // 
+            this.BanProxyTextBox.Location = new System.Drawing.Point(123, 230);
+            this.BanProxyTextBox.Name = "BanProxyTextBox";
+            this.BanProxyTextBox.ReadOnly = true;
+            this.BanProxyTextBox.Size = new System.Drawing.Size(139, 23);
+            this.BanProxyTextBox.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BanProxyTextBox.StateCommon.Content.Color1 = System.Drawing.Color.Black;
+            this.BanProxyTextBox.StateCommon.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BanProxyTextBox.TabIndex = 29;
+            this.BanProxyTextBox.Text = "0";
+            this.BanProxyTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // kryptonLabel5
+            // 
+            this.kryptonLabel5.Location = new System.Drawing.Point(15, 197);
+            this.kryptonLabel5.Name = "kryptonLabel5";
+            this.kryptonLabel5.Size = new System.Drawing.Size(65, 20);
+            this.kryptonLabel5.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.kryptonLabel5.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.kryptonLabel5.TabIndex = 30;
+            this.kryptonLabel5.Values.Text = "Proxy lỗi:";
+            // 
+            // kryptonLabel11
+            // 
+            this.kryptonLabel11.Location = new System.Drawing.Point(15, 230);
+            this.kryptonLabel11.Name = "kryptonLabel11";
+            this.kryptonLabel11.Size = new System.Drawing.Size(73, 20);
+            this.kryptonLabel11.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.kryptonLabel11.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.kryptonLabel11.TabIndex = 31;
+            this.kryptonLabel11.Values.Text = "Proxy ban:";
             // 
             // FrmMain
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(419, 446);
-            Controls.Add(SkipUpDown);
-            Controls.Add(kryptonLabel10);
-            Controls.Add(ProxyCountTextBox);
-            Controls.Add(label1);
-            Controls.Add(ActiveTopMostCheckBox);
-            Controls.Add(kryptonLabel9);
-            Controls.Add(ThreadsUpDown);
-            Controls.Add(DelayUpDown);
-            Controls.Add(Socks5RadioButton);
-            Controls.Add(HTTPProxyRadioButton);
-            Controls.Add(NoProxyRadioButton);
-            Controls.Add(kryptonLabel8);
-            Controls.Add(kryptonLabel7);
-            Controls.Add(kryptonLabel6);
-            Controls.Add(StatusTextBox);
-            Controls.Add(CheckedAccountsTextBox);
-            Controls.Add(FailedAccountsTextBox);
-            Controls.Add(SuccessAccountsTextBox);
-            Controls.Add(TotalAccountsTextBox);
-            Controls.Add(kryptonLabel5);
-            Controls.Add(kryptonLabel4);
-            Controls.Add(kryptonLabel3);
-            Controls.Add(kryptonLabel2);
-            Controls.Add(kryptonLabel1);
-            Controls.Add(StopBtn);
-            Controls.Add(StartBtn);
-            Controls.Add(LoadDataBtn);
-            Controls.Add(LoadProxyBtn);
-            Icon = (Icon)resources.GetObject("$this.Icon");
-            MaximizeBox = false;
-            MaximumSize = new Size(435, 485);
-            MinimumSize = new Size(435, 485);
-            Name = "FrmMain";
-            Text = "Oracle Scan - Tele: @lukaxsx";
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ClientSize = new System.Drawing.Size(419, 396);
+            this.Controls.Add(this.kryptonLabel11);
+            this.Controls.Add(this.kryptonLabel5);
+            this.Controls.Add(this.BanProxyTextBox);
+            this.Controls.Add(this.ErrorProxyTextBox);
+            this.Controls.Add(this.SkipUpDown);
+            this.Controls.Add(this.kryptonLabel10);
+            this.Controls.Add(this.TotalProxyTextBox);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.ActiveTopMostCheckBox);
+            this.Controls.Add(this.kryptonLabel9);
+            this.Controls.Add(this.ThreadsUpDown);
+            this.Controls.Add(this.DelayUpDown);
+            this.Controls.Add(this.Socks5RadioButton);
+            this.Controls.Add(this.HTTPProxyRadioButton);
+            this.Controls.Add(this.NoProxyRadioButton);
+            this.Controls.Add(this.kryptonLabel8);
+            this.Controls.Add(this.kryptonLabel7);
+            this.Controls.Add(this.kryptonLabel6);
+            this.Controls.Add(this.StatusTextBox);
+            this.Controls.Add(this.CheckedAccountsTextBox);
+            this.Controls.Add(this.FailedAccountsTextBox);
+            this.Controls.Add(this.SuccessAccountsTextBox);
+            this.Controls.Add(this.TotalAccountsTextBox);
+            this.Controls.Add(this.kryptonLabel4);
+            this.Controls.Add(this.kryptonLabel3);
+            this.Controls.Add(this.kryptonLabel2);
+            this.Controls.Add(this.kryptonLabel1);
+            this.Controls.Add(this.StopBtn);
+            this.Controls.Add(this.StartBtn);
+            this.Controls.Add(this.LoadDataBtn);
+            this.Controls.Add(this.LoadProxyBtn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(435, 435);
+            this.MinimumSize = new System.Drawing.Size(435, 435);
+            this.Name = "FrmMain";
+            this.Text = "Oracle Scan - Tele: @lukaxsx";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
@@ -444,7 +515,6 @@
         private Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private Krypton.Toolkit.KryptonLabel kryptonLabel3;
         private Krypton.Toolkit.KryptonLabel kryptonLabel4;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel5;
         private Krypton.Toolkit.KryptonTextBox TotalAccountsTextBox;
         private Krypton.Toolkit.KryptonTextBox SuccessAccountsTextBox;
         private Krypton.Toolkit.KryptonTextBox FailedAccountsTextBox;
@@ -461,8 +531,12 @@
         private Krypton.Toolkit.KryptonLabel kryptonLabel9;
         private Krypton.Toolkit.KryptonCheckBox ActiveTopMostCheckBox;
         private Krypton.Toolkit.KryptonLabel label1;
-        private Krypton.Toolkit.KryptonTextBox ProxyCountTextBox;
+        private Krypton.Toolkit.KryptonTextBox TotalProxyTextBox;
         private Krypton.Toolkit.KryptonLabel kryptonLabel10;
         private Krypton.Toolkit.KryptonNumericUpDown SkipUpDown;
+        private Krypton.Toolkit.KryptonTextBox ErrorProxyTextBox;
+        private Krypton.Toolkit.KryptonTextBox BanProxyTextBox;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel5;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel11;
     }
 }

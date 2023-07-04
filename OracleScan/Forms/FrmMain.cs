@@ -1,5 +1,6 @@
 ﻿using OracleScan.Models;
 using OracleScan.Services;
+using System.Net;
 
 namespace OracleScan.Forms
 {
@@ -14,6 +15,7 @@ namespace OracleScan.Forms
         private Queue<Account> _accounts = new();
         private List<MyProxy> _proxies = new();
         private readonly ItemsCount _itemCount = new();
+        private readonly ProxyCount _proxyCount = new();
         private int _proxyIndex = 0;
 
         public FrmMain()
@@ -25,6 +27,10 @@ namespace OracleScan.Forms
             SuccessAccountsTextBox.DataBindings.Add("Text", _itemCount, "Success");
             FailedAccountsTextBox.DataBindings.Add("Text", _itemCount, "Failed");
             CheckedAccountsTextBox.DataBindings.Add("Text", _itemCount, "Scanned");
+
+            TotalProxyTextBox.DataBindings.Add("Text", _proxyCount, "Total");
+            BanProxyTextBox.DataBindings.Add("Text", _proxyCount, "Banned");
+            ErrorProxyTextBox.DataBindings.Add("Text", _proxyCount, "Error");
 
             ActiveControl = kryptonLabel1;
         }
@@ -50,8 +56,8 @@ namespace OracleScan.Forms
                         _itemCount.Success = 0;
                         _itemCount.Failed = 0;
                         _itemCount.Scanned = 0;
+                        MessageBox.Show(this, "Đã load Data xong!", "Thông báo");
                     });
-                    MessageBox.Show(this, "Đã load Data xong!", "Thông báo");
                 }
             });
         }
@@ -70,8 +76,13 @@ namespace OracleScan.Forms
                 if (dialogRs == DialogResult.OK)
                 {
                     _proxies = DataHandler.LoadProxies(openFileDialog.FileName);
-                    Invoke(() => ProxyCountTextBox.Text = _proxies.Count.ToString());
-                    MessageBox.Show(this, "Đã load Proxy xong!", "Thông báo");
+                    Invoke(() =>
+                    {
+                        _proxyCount.Total = _proxies.Count;
+                        _proxyCount.Error = 0;
+                        _proxyCount.Banned = 0;
+                        MessageBox.Show(this, "Đã load Proxy xong!", "Thông báo");
+                    });
                 }
             });
         }
@@ -142,7 +153,7 @@ namespace OracleScan.Forms
                             if (_proxies.Count == 0) return;
                             lock (_proxies)
                             {
-                                if (_proxyIndex == _proxies.Count) _proxyIndex = 0;
+                                if (_proxyIndex >= _proxies.Count) _proxyIndex = 0;
                                 myProxy = _proxies[_proxyIndex];
                                 _proxyIndex++;
                             }
@@ -155,20 +166,35 @@ namespace OracleScan.Forms
                         if (account == null) return;
 
                         using var client = OracleService.CreateClient(myProxy, _proxyType);
-                        var result = await OracleService.CheckTenant(client, account.Tenant, token);
-                        if (result == null)
+                        var statuscode = await OracleService.CheckTenant(client, account, token);
+                        switch (statuscode)
                         {
-                            DataHandler.WriteError(account);
-                            Invoke(() =>
-                            {
-                                _itemCount.Failed++;
-                                _itemCount.Scanned++;
-                            });
-                            continue;
+                            case HttpStatusCode.OK: break;
+
+                            case HttpStatusCode.Forbidden:
+                                if (myProxy == null) break;
+                                lock (_proxies) { _proxies.Remove(myProxy); }
+                                DataHandler.WriteBanProxy(myProxy);
+                                Invoke(() =>
+                                {
+                                    _proxyCount.Total--;
+                                    _proxyCount.Banned++;
+                                });
+                                break;
+
+                            default:
+                                if (myProxy == null) break;
+                                lock (_proxies) { _proxies.Remove(myProxy); }
+                                DataHandler.WriteErrorProxy(myProxy);
+                                Invoke(() =>
+                                {
+                                    _proxyCount.Total--;
+                                    _proxyCount.Error++;
+                                });
+                                break;
                         }
-                        if (result.Contains("homeRegionConsoleUrl"))
+                        if (statuscode == HttpStatusCode.OK)
                         {
-                            DataHandler.WriteSuccess(account);
                             Invoke(() =>
                             {
                                 _itemCount.Success++;
@@ -178,7 +204,6 @@ namespace OracleScan.Forms
                         }
                         else
                         {
-                            DataHandler.WriteFailed(account);
                             Invoke(() =>
                             {
                                 _itemCount.Failed++;

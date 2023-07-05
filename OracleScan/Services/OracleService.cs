@@ -73,7 +73,7 @@ namespace OracleScan.Services
             {
                 DataHandler.WriteLog($"[CheckTenant] Got exception while checking tenant {account.Tenant}. Error: {ex}");
                 DataHandler.WriteError(account);
-                return HttpStatusCode.InternalServerError;
+                return HttpStatusCode.Gone;
             }
         }
 

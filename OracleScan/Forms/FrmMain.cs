@@ -190,8 +190,6 @@ namespace OracleScan.Forms
                         var statuscode = await OracleService.CheckTenant(client, account, token);
                         switch (statuscode)
                         {
-                            case HttpStatusCode.OK: break;
-
                             case HttpStatusCode.Forbidden:
                                 if (myProxy == null) break;
                                 var removedBan = true;
@@ -211,7 +209,7 @@ namespace OracleScan.Forms
                                 }
                                 break;
 
-                            default:
+                            case HttpStatusCode.Gone:
                                 if (myProxy == null) break;
                                 var removedErr = true;
                                 lock (_proxies) 
@@ -229,6 +227,8 @@ namespace OracleScan.Forms
                                     });
                                 }
                                 break;
+
+                            default: break;
                         }
                         if (statuscode == HttpStatusCode.OK)
                         {

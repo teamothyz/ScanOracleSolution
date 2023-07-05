@@ -14,6 +14,8 @@ namespace OracleScan.Forms
         private CancellationTokenSource _cancelSource = new();
         private Queue<Account> _accounts = new();
         private List<MyProxy> _proxies = new();
+        private readonly List<MyProxy> _errorProxies = new();
+
         private readonly ItemsCount _itemCount = new();
         private readonly ProxyCount _proxyCount = new();
         private int _proxyIndex = 0;
@@ -137,6 +139,24 @@ namespace OracleScan.Forms
             }
         }
 
+        private void ReloadProxy()
+        {
+            lock (_proxies)
+            {
+                if (_proxies.Count == 0 && _errorProxies.Count != 0)
+                {
+                    _proxies.AddRange(_errorProxies);
+                    _errorProxies.Clear();
+                    Invoke(() =>
+                    {
+                        _proxyCount.Total = _proxies.Count;
+                        _proxyCount.Error = 0;
+                        _proxyCount.Banned = 0;
+                    });
+                }
+            }
+        }
+
         private async Task Check(CancellationToken token)
         {
             try
@@ -150,6 +170,7 @@ namespace OracleScan.Forms
                     {
                         if (_proxyType != ProxyType.None)
                         {
+                            if (ReloadErrProxyCheckBox.Checked) ReloadProxy();
                             if (_proxies.Count == 0) return;
                             lock (_proxies)
                             {
@@ -173,24 +194,40 @@ namespace OracleScan.Forms
 
                             case HttpStatusCode.Forbidden:
                                 if (myProxy == null) break;
-                                lock (_proxies) { _proxies.Remove(myProxy); }
-                                DataHandler.WriteBanProxy(myProxy);
-                                Invoke(() =>
+                                var removedBan = true;
+                                lock (_proxies)
                                 {
-                                    _proxyCount.Total--;
-                                    _proxyCount.Banned++;
-                                });
+                                    removedBan = _proxies.Remove(myProxy);
+                                    if (removedBan) _errorProxies.Add(myProxy);
+                                }
+                                DataHandler.WriteBanProxy(myProxy);
+                                if (removedBan)
+                                {
+                                    Invoke(() =>
+                                    {
+                                        _proxyCount.Total--;
+                                        _proxyCount.Banned++;
+                                    });
+                                }
                                 break;
 
                             default:
                                 if (myProxy == null) break;
-                                lock (_proxies) { _proxies.Remove(myProxy); }
+                                var removedErr = true;
+                                lock (_proxies) 
+                                { 
+                                    removedErr = _proxies.Remove(myProxy); 
+                                    if (removedErr) _errorProxies.Add(myProxy);
+                                }
                                 DataHandler.WriteErrorProxy(myProxy);
-                                Invoke(() =>
+                                if (removedErr)
                                 {
-                                    _proxyCount.Total--;
-                                    _proxyCount.Error++;
-                                });
+                                    Invoke(() =>
+                                    {
+                                        _proxyCount.Total--;
+                                        _proxyCount.Error++;
+                                    });
+                                }
                                 break;
                         }
                         if (statuscode == HttpStatusCode.OK)

@@ -19,6 +19,7 @@ namespace OracleScan.Forms
         private readonly ItemsCount _itemCount = new();
         private readonly ProxyCount _proxyCount = new();
         private int _proxyIndex = 0;
+        private bool _isForbid = false;
 
         public FrmMain()
         {
@@ -78,6 +79,7 @@ namespace OracleScan.Forms
                 if (dialogRs == DialogResult.OK)
                 {
                     _proxies = DataHandler.LoadProxies(openFileDialog.FileName);
+                    _errorProxies.Clear();
                     Invoke(() =>
                     {
                         _proxyCount.Total = _proxies.Count;
@@ -105,6 +107,7 @@ namespace OracleScan.Forms
                         StatusTextBox.StateCommon.Back.Color1 = Color.Lime;
                         MessageBox.Show(this, "Chương trình bắt đầu", "Thông báo");
                     });
+                    _isForbid = false;
                     for (int i = 0; i < skipped; i++)
                     {
                         if (_accounts.Count == 0) break;
@@ -129,12 +132,13 @@ namespace OracleScan.Forms
             {
                 DisableButton(false);
                 DataHandler.WriteLastRun(_lastFileName, _itemCount.Scanned);
+                var msg = _isForbid ? " do bị chặn (403)" : "";
                 Invoke(() =>
                 {
                     SkipUpDown.Value = 0;
                     StatusTextBox.Text = "Đã dừng";
                     StatusTextBox.StateCommon.Back.Color1 = Color.Firebrick;
-                    MessageBox.Show(this, "Chương trình đã dừng lại", "Thông báo");
+                    MessageBox.Show(this, $"Chương trình đã dừng lại{msg}", "Thông báo");
                 });
             }
         }
@@ -165,7 +169,7 @@ namespace OracleScan.Forms
                 Account? account = null;
                 while (true)
                 {
-                    if (token.IsCancellationRequested) return;
+                    if (token.IsCancellationRequested || _isForbid) return;
                     try
                     {
                         if (_proxyType != ProxyType.None)
@@ -188,6 +192,12 @@ namespace OracleScan.Forms
 
                         using var client = OracleService.CreateClient(myProxy, _proxyType);
                         var statuscode = await OracleService.CheckTenant(client, account, token);
+                        if (_proxyType == ProxyType.None && statuscode == HttpStatusCode.Forbidden)
+                        {
+                            _isForbid = true;
+                            return;
+                        }
+
                         switch (statuscode)
                         {
                             case HttpStatusCode.Forbidden:
@@ -212,9 +222,9 @@ namespace OracleScan.Forms
                             case HttpStatusCode.Gone:
                                 if (myProxy == null) break;
                                 var removedErr = true;
-                                lock (_proxies) 
-                                { 
-                                    removedErr = _proxies.Remove(myProxy); 
+                                lock (_proxies)
+                                {
+                                    removedErr = _proxies.Remove(myProxy);
                                     if (removedErr) _errorProxies.Add(myProxy);
                                 }
                                 DataHandler.WriteErrorProxy(myProxy);
